@@ -2,7 +2,7 @@ CREATE OR REPLACE PROCEDURE GetTenantDetails (PropertyID IN PropertyTable.Proper
 AS
 BEGIN
 
-SELECT * from USER
+SELECT * from UserTable
 WHERE UserTable.AadhaarID = TenantTable.AadhaarID AND
       TenantTable.AadhaarID = HistoryTable.TenantID AND
       HistoryTable.PropertyID = PropertyTable.PropertyID AND
