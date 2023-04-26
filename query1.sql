@@ -83,14 +83,14 @@ END;
 /
 
 
-INSERT INTO UserTable VALUES ('123456789012', 'John Smith', 30, 101, 'Main St', 'Anytown', 'California', '123456', 'johnsmith@example.com', 'password123');
+INSERT INTO UserTable VALUES ('111122223333', 'John Smith', 30, 101, 'Main St', 'Anytown', 'California', '123456', 'johnsmith@example.com', 'password123');
 
 
 INSERT INTO UserTable VALUES ('987654321098', 'Jane Doe', 25, 202, 'Oak St', 'Sometown', 'New York', '654321', 'janedoe@example.com', 'pass1234');
 
 BEGIN
   InsertPropertyRecord(
-    aadhaarID_input => '123456979012',
+    aadhaarID_input => '123456789012',
     PropertyID => 101,
     Date_available_from => TO_DATE('2023-05-01', 'YYYY-MM-DD'),
     Date_available_till => TO_DATE('2024-04-30', 'YYYY-MM-DD'),
