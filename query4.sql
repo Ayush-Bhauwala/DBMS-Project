@@ -1,6 +1,7 @@
 CREATE OR REPLACE PROCEDURE CreateNewUser(
-    aadhaarID_input IN UserTable.AadhaarID%TYPE
-    AadhaarID IN UserTable.AadhaarID%TYPE,
+    aadhaarID_input IN UserTable.AadhaarID%TYPE,
+    Password_check IN UserTable.Login_password%TYPE,
+    AadhaarID_new IN UserTable.AadhaarID%TYPE,
     Name IN UserTable.Name%TYPE,
     Age IN UserTable.Age%TYPE,
     Door_no IN UserTable.Door_no%TYPE,
@@ -9,27 +10,40 @@ CREATE OR REPLACE PROCEDURE CreateNewUser(
     State IN UserTable.State%TYPE,
     Pincode IN UserTable.Pincode%TYPE,
     Login_email IN UserTable.Login_email%TYPE,
-    Login_password IN UserTable.Login_password%TYPE
+    Login_password_new IN UserTable.Login_password%TYPE,
+    Phone_no IN PhoneTable.Phone%TYPE
 )
 AS
   v_user_exists NUMBER;
+  new_user_exists NUMBER;
 BEGIN
   -- Check if the given Aadhaar ID is of admin
-SELECT COUNT(*) INTO v_user_exists FROM AdminTable WHERE AadhaarID = aadhaarID_input;
+SELECT COUNT(*) INTO v_user_exists FROM AdminTable, UserTable WHERE AdminTable.AadhaarID = aadhaarID_input AND UserTable.Login_password=Password_check;
 
   IF v_user_exists > 0 THEN
     -- If user exists, insert a new record into UserTable with the given property details
-    INSERT INTO UserTable (
-      AadhaarID, Name, Age, Door_no, Street, City, State, Pincode, Login_email, Login_password
-    )
-    VALUES(
-      AadhaarID, Name, Age, Door_no, Street, City, State, Pincode, Login_email, Login_password
-    );
+    SELECT COUNT(*) INTO new_user_exists FROM UserTable WHERE AadhaarID = AadhaarID_new;
 
-    DBMS_OUTPUT.PUT_LINE('New user created successfully.');
+    IF new_user_exists > 0 THEN
+        INSERT INTO PhoneTable VALUES (AadhaarID_new, Phone_no);
+
+        DBMS_OUTPUT.PUT_LINE('Phone number added successfully.');
+    ELSE
+        INSERT INTO UserTable (
+          AadhaarID, Name, Age, Door_no, Street, City, State, Pincode, Login_email, Login_password
+        )
+        VALUES(
+          AadhaarID_new, Name, Age, Door_no, Street, City, State, Pincode, Login_email, Login_password_new
+        );
+
+        INSERT INTO PhoneTable VALUES (AadhaarID_new, Phone_no);
+
+        DBMS_OUTPUT.PUT_LINE('New user created successfully.');
+    END IF;
+  
   ELSE
     -- If user does not exist, display error message
-    DBMS_OUTPUT.PUT_LINE('Error: Only admin can create user!');
+    DBMS_OUTPUT.PUT_LINE('Only admin can create user!');
   END IF;
 END;
 /

@@ -25,3 +25,5 @@ BEGIN
     
 END;
 /
+
+EXEC GetRentHistory(101);
