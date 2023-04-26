@@ -20,21 +20,21 @@ BEGIN
     OPEN property_cursor;
     FETCH property_cursor INTO v_property;
     IF (property_cursor%FOUND) THEN 
-        -- Print property details
-        DBMS_OUTPUT.PUT_LINE('Property ID: ' || v_property.PropertyID);
-        DBMS_OUTPUT.PUT_LINE('Owner ID: ' || v_property.OwnerID);
-        DBMS_OUTPUT.PUT_LINE('Date Available From: ' || v_property.Date_available_from);
-        DBMS_OUTPUT.PUT_LINE('Date Available Till: ' || v_property.Date_available_till);
-        DBMS_OUTPUT.PUT_LINE('Rent per Month: ' || v_property.Rent_per_month);
-        DBMS_OUTPUT.PUT_LINE('Percent Annual Hike: ' || v_property.Percent_annual_hike);
-        DBMS_OUTPUT.PUT_LINE('Total Area: ' || v_property.Total_area);
-        DBMS_OUTPUT.PUT_LINE('Plinth Area: ' || v_property.Plinth_area);
-        DBMS_OUTPUT.PUT_LINE('Floor No.: ' || v_property.Floor_no);
-        DBMS_OUTPUT.PUT_LINE('Construction Year: ' || v_property.Construction_year);
-        DBMS_OUTPUT.PUT_LINE('Locality: ' || v_property.Locality);
-        DBMS_OUTPUT.PUT_LINE('City: ' || v_property.City);
-        DBMS_OUTPUT.PUT_LINE('State: ' || v_property.State);
-        DBMS_OUTPUT.PUT_LINE('Pincode: ' || v_property.Pincode);
+
+        -- Print table header
+                DBMS_OUTPUT.PUT_LINE('+---------------+---------------+----------------------+----------------------+-----------------+----------------------+----------------+----------------+-----------+------------------+------------+------------+------------+');
+                DBMS_OUTPUT.PUT_LINE('| Property ID   | Owner ID      | Date Available From  | Date Available Till  | Rent per Month  | Percent Annual Hike  | Total Area     | Plinth Area    | Floor No. | Construction Year | Locality   | City       | State      |');
+                DBMS_OUTPUT.PUT_LINE('+---------------+---------------+----------------------+----------------------+-----------------+----------------------+----------------+----------------+-----------+------------------+------------+------------+------------+');
+                
+                -- Print property details
+                WHILE (property_cursor%FOUND) LOOP
+                    DBMS_OUTPUT.PUT_LINE('| ' || LPAD(v_property.PropertyID, 13) || ' | ' || LPAD(v_property.OwnerID, 13) || ' | ' || LPAD(v_property.Date_available_from, 20) || ' | ' || LPAD(v_property.Date_available_till, 20) || ' | ' || LPAD(v_property.Rent_per_month, 15) || ' | ' || LPAD(v_property.Percent_annual_hike, 22) || ' | ' || LPAD(v_property.Total_area, 14) || ' | ' || LPAD(v_property.Plinth_area, 14) || ' | ' || LPAD(v_property.Floor_no, 9) || ' | ' || LPAD(v_property.Construction_year, 18) || ' | ' || LPAD(v_property.Locality, 11) || ' | ' || LPAD(v_property.City, 11) || ' | ' || LPAD(v_property.State, 11) || ' | ');
+                    FETCH property_cursor INTO v_property;
+                END LOOP;
+
+                -- Print table footer
+                DBMS_OUTPUT.PUT_LINE('+---------------+---------------+----------------------+----------------------+-----------------+----------------------+----------------+----------------+-----------+------------------+------------+------------+------------+');
+
     ELSE
         -- Print message if no properties are found
         DBMS_OUTPUT.PUT_LINE('There is no property in this city.');
