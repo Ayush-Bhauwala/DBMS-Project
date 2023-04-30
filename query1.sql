@@ -83,34 +83,34 @@ END;
 /
 
 
-INSERT INTO UserTable VALUES ('111122223333', 'John Smith', 30, 101, 'Main St', 'Anytown', 'California', '123456', 'johnsmith@example.com', 'password123');
+-- INSERT INTO UserTable VALUES ('111122223333', 'John Smith', 30, 101, 'Main St', 'Anytown', 'California', '123456', 'johnsmith@example.com', 'password123');
 
 
-INSERT INTO UserTable VALUES ('987654321098', 'Jane Doe', 25, 202, 'Oak St', 'Sometown', 'New York', '654321', 'janedoe@example.com', 'pass1234');
+-- INSERT INTO UserTable VALUES ('987654321098', 'Jane Doe', 25, 202, 'Oak St', 'Sometown', 'New York', '654321', 'janedoe@example.com', 'pass1234');
 
-BEGIN
-  InsertPropertyRecord(
-    aadhaarID_input => '123456789012',
-    PropertyID => 101,
-    Date_available_from => TO_DATE('2023-05-01', 'YYYY-MM-DD'),
-    Date_available_till => TO_DATE('2024-04-30', 'YYYY-MM-DD'),
-    Rent_per_month => 20000,
-    Percent_annual_hike => 5,
-    Total_area => 1500,
-    Plinth_area => 1200,
-    Floor_no => 3,
-    Construction_year => 2015,
-    Locality => 'Koramangala',
-    City => 'Bangalore',
-    State => 'Karnataka',
-    Pincode => '560095'
-  );
-END;
-/
+-- BEGIN
+--   InsertPropertyRecord(
+--     aadhaarID_input => '123456789012',
+--     PropertyID => 101,
+--     Date_available_from => TO_DATE('2023-05-01', 'YYYY-MM-DD'),
+--     Date_available_till => TO_DATE('2024-04-30', 'YYYY-MM-DD'),
+--     Rent_per_month => 20000,
+--     Percent_annual_hike => 5,
+--     Total_area => 1500,
+--     Plinth_area => 1200,
+--     Floor_no => 3,
+--     Construction_year => 2015,
+--     Locality => 'Koramangala',
+--     City => 'Bangalore',
+--     State => 'Karnataka',
+--     Pincode => '560095'
+--   );
+-- END;
+-- /
 
 
 
-SHOW ERRORS PROCEDURE InsertPropertyRecord;
+-- SHOW ERRORS PROCEDURE InsertPropertyRecord;
 
 
 

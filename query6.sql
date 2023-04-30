@@ -1,5 +1,5 @@
 CREATE OR REPLACE PROCEDURE GetRentHistory(
-    PropertyID IN HistoryTable.PropertyID%TYPE,
+    Property_ID IN HistoryTable.PropertyID%TYPE,
     AadhaarID_check IN UserTable.AadhaarID%TYPE,
     Password_check IN UserTable.Login_password%TYPE
 )
@@ -11,7 +11,7 @@ is_valid_user NUMBER;
         -- FROM UserTable, ManagerTable, OwnerTable, HistoryTable
         SELECT * 
         FROM HistoryTable
-        WHERE HistoryTable.PropertyID = PropertyID;
+        WHERE HistoryTable.PropertyID = Property_ID;
     v_history history_cursor%ROWTYPE;
 
 BEGIN

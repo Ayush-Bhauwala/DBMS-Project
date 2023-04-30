@@ -9,7 +9,9 @@ DROP TABLE IF EXISTS PropertyTable;
 DROP TABLE IF EXISTS PhoneTable;
 DROP TABLE IF EXISTS TenantTable;
 DROP TABLE IF EXISTS UserTable;
+DROP TABLE IF EXISTS UserHistoryTable;
 
+create table UserHistoryTable(AadhaarID char(12) primary key, Name varchar(15), Age int, Door_no int, Street varchar(30), City varchar(15), State varchar(15), Pincode char(6), Login_email varchar(50) , Login_password varchar(50));
 
 create table UserTable(AadhaarID char(12) primary key, Name varchar(15), Age int, Door_no int, Street varchar(30), City varchar(15), State varchar(15), Pincode char(6), Login_email varchar(50) , Login_password varchar(50));
 
