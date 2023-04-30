@@ -1,3 +1,16 @@
+DROP TABLE IF EXISTS ManagerTable;
+DROP TABLE IF EXISTS AdminTable;
+DROP TABLE IF EXISTS OwnerTable;
+DROP TABLE IF EXISTS ResidentialTable;
+DROP TABLE IF EXISTS CommercialTable;
+DROP TABLE IF EXISTS FacilitiesTable;
+DROP TABLE IF EXISTS HistoryTable;
+DROP TABLE IF EXISTS PropertyTable;
+DROP TABLE IF EXISTS PhoneTable;
+DROP TABLE IF EXISTS TenantTable;
+DROP TABLE IF EXISTS UserTable;
+
+
 create table UserTable(AadhaarID char(12) primary key, Name varchar(15), Age int, Door_no int, Street varchar(30), City varchar(15), State varchar(15), Pincode char(6), Login_email varchar(50) , Login_password varchar(50));
 
 create table AdminTable(AadhaarID char(12) primary key,CHECK(AadhaarID='111122223333'), foreign key (AadhaarID) references UserTable(AadhaarID) on delete cascade);
