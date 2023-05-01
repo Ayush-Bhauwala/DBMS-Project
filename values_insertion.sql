@@ -111,17 +111,19 @@ INSERT INTO HistoryTable VALUES (3, '01-MAY-2023', NULL, '901234567890', 50, 600
 
 INSERT INTO UserTable VALUES ('390819111400', 'Harish Kumar', 25, 30, 'Bleeker St', 'Jaipur', 'Rajasthan', '342001', 'harishh@gmail.com', 'ilovesachin');
 INSERT INTO OwnerTable VALUES('390819111400');
+INSERT INTO PropertyTable VALUES (6, '390819111400', '01-DEC-2019', '01-DEC-2020', 1000, 4,1250, 620, 1, 1999, 'Panawar Nagar', 'Jaipur', 'Rajasthan', '320012');
+INSERT INTO ResidentialTable VALUES(6,1);
 
 INSERT INTO UserTable VALUES ('564825945566', 'Rajesh Patel', 38, 320, 'Purushottam  St', 'Jodhpur', 'Rajasthan', '342008', 'raj@gmail.com', 'henlohenlo');
 INSERT INTO OwnerTable VALUES('564825945566');
 INSERT INTO TenantTable VALUES ('564825945566');
-INSERT INTO HistoryTable VALUES (1, '01-JAN-2020', '01-FEB-2020', '564825945566', 10, 1500);
+INSERT INTO HistoryTable VALUES (6, '01-JAN-2020', '01-FEB-2020', '564825945566', 10, 1500);
 INSERT INTO PhoneTable VALUES ('564825945566', '8887779956');
 
 INSERT INTO UserTable VALUES ('569888466432', 'Mahesh Khurrana', 25, 18, 'Kamla St', 'Hyderabad', 'Telangana', '500078', 'maheshthebest@gmail.com', 'biryaniislife');
 INSERT INTO OwnerTable VALUES('569888466432');
 INSERT INTO TenantTable VALUES ('569888466432');
-INSERT INTO HistoryTable VALUES (5, '01-JAN-2023', NULL, '569888466432', 15, 1000);
+INSERT INTO HistoryTable VALUES (6, '21-APR-2020', NULL, '569888466432', 15, 1000);
 INSERT INTO PhoneTable VALUES ('569888466432', '8769298613');
 
 INSERT INTO UserTable VALUES ('130485445943', 'Junaid Ansari', 27, 57, 'Fountain St', 'Lucknow', 'Uttar Pradesh', '703335', 'junnu@gmail.com', 'allahuakbar');
@@ -145,3 +147,16 @@ INSERT INTO UserTable VALUES ('130485665943', 'Harpreet Kaur', 32, 40, 'Chand Vi
 INSERT INTO TenantTable VALUES ('130485665943');
 INSERT INTO HistoryTable VALUES (3, '30-DEC-2022', '30-APR-2023', '130485665943', 15, 6000);
 INSERT INTO PhoneTable VALUES ('130485665943', '9886077788');
+
+INSERT INTO PropertyTable VALUES (7, '569888466432', '30-MAR-2023', '01-JUN-2024', 1500.00, 10.00, 2200.00, 1200.00, 2, 2002, 'Vijayanagar', 'Bangalore', 'Karnataka', '560099');
+INSERT INTO FacilitiesTable VALUES (7, 'Parking Lot');
+INSERT INTO CommercialTable VALUES (7);
+
+INSERT INTO UserTable VALUES ('904835323244', 'Shikhar Singh', 35, 19, 'Dhawan St', 'Chandigarh', 'Punjab', '472001', 'shikhar@gmail.com', 'perrytheplatypus');
+INSERT INTO PhoneTable VALUES ('904835323244', '8934753483');
+
+INSERT INTO UserTable VALUES ('672398012345', 'Abdul Ahmed', 26, 9, 'Ameerpet', 'Hyderabad', 'Telangana', '500012', 'abdulahmed@gmail.com', 'asdf34df,/35.');
+INSERT INTO PhoneTable VALUES ('672398012345', '6734654424');
+
+INSERT INTO UserTable VALUES ('891287453209', 'Ramesh Kumar', 51, 29, 'Yadav St', 'Shillong', 'Meghalya', '781220', 'ramesh@gmail.com', '8329jiocfds/2');
+INSERT INTO PhoneTable VALUES ('891287453209', '8723945512');
