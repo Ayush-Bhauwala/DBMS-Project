@@ -21,6 +21,7 @@ CREATE OR REPLACE PROCEDURE InsertPropertyRecord(
   passvariable UserTable.Login_password%TYPE;
   --v_max_id PropertyTable.PropertyID%TYPE;
   Property_ID PropertyTable.PropertyID%TYPE;
+  owner_exists NUMBER;
 BEGIN
   
   -- Retrieve the password for the given Aadhaar ID from UserTable
@@ -54,7 +55,10 @@ BEGIN
           Floor_no, Construction_year, Locality, City, State, Pincode
         );
         -- Insert the owner record into OwnerTable with the newly generated property ID
-        INSERT INTO OwnerTable (AadhaarID) VALUES (aadhaarID_input);
+        SELECT COUNT(*) INTO owner_exists FROM OwnerTable WHERE AadhaarID = aadhaarID_input;
+        IF owner_exists=0 THEN
+          INSERT INTO OwnerTable (AadhaarID) VALUES (aadhaarID_input);
+        END IF;
         -- Insert the facilities record into FacilitiesTable with the newly generated property ID
         INSERT INTO FacilitiesTable (PropertyID, Facility) VALUES (Property_ID, fac);
         -- Insert the residential or commercial record depending on the number of bedrooms

@@ -126,10 +126,10 @@ INSERT INTO TenantTable VALUES ('569888466432');
 INSERT INTO HistoryTable VALUES (6, '21-APR-2020', NULL, '569888466432', 15, 1000);
 INSERT INTO PhoneTable VALUES ('569888466432', '8769298613');
 
-INSERT INTO UserTable VALUES ('130485445943', 'Junaid Ansari', 27, 57, 'Fountain St', 'Lucknow', 'Uttar Pradesh', '703335', 'junnu@gmail.com', 'allahuakbar');
-INSERT INTO TenantTable VALUES ('130485445943');
-INSERT INTO HistoryTable VALUES (5, '05-MAR-2023', '01-MAY-2023', '130485445943', 15, 1000);
-INSERT INTO PhoneTable VALUES ('130485445943', '9414041400');
+INSERT INTO UserTable VALUES ('130485445944', 'Junaid Ansari', 27, 57, 'Fountain St', 'Lucknow', 'Uttar Pradesh', '703335', 'junnu@gmail.com', 'allahuakbar');
+INSERT INTO TenantTable VALUES ('130485445944');
+INSERT INTO HistoryTable VALUES (5, '05-MAR-2023', '01-MAY-2023', '130485445944', 15, 1000);
+INSERT INTO PhoneTable VALUES ('130485445944', '9414041400');
 
 INSERT INTO UserTable VALUES ('135597442333', 'Ishwar Singh', 25, 19, 'Yadav St', 'Udaipur', 'Rajasthan', '362256', 'iamgod@gmail.com', 'perrytheplatypus');
 INSERT INTO TenantTable VALUES ('135597442333');
