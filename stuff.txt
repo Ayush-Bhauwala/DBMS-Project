@@ -1,2 +1,0 @@
-manager - property tables
-1. manager (InsertPropertyRecord)

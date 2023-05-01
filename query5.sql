@@ -1,19 +1,3 @@
--- CREATE OR REPLACE PROCEDURE SearchPropertyForRent(City_input IN PropertyTable.City%TYPE)
--- AS
---     CURSOR property_cursor IS
---         SELECT p.PropertyID, p.OwnerID, p.Date_available_from, p.Date_available_till,
---                p.Rent_per_month, p.Percent_annual_hike, p.Total_area, p.Plinth_area,
---                p.Floor_no, p.Construction_year, p.Locality, p.City, p.State, p.Pincode
---         FROM PropertyTable p
---         LEFT OUTER JOIN HistoryTable h ON p.PropertyID = h.PropertyID
---         WHERE p.City = City_input
---         AND
---         (
---         (h.End_date IS NOT NULL AND trunc(sysdate) NOT BETWEEN h.Start_date AND h.End_date)
---         OR
---         h.Start_date IS NULL
---         );
---     v_property property_cursor%ROWTYPE;
 CREATE OR REPLACE PROCEDURE SearchPropertyForRent(City_input IN PropertyTable.City%TYPE)
 AS
     CURSOR property_cursor IS
