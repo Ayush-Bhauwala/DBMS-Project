@@ -108,3 +108,34 @@ INSERT INTO HistoryTable VALUES (3, '05-MAY-2023', '05-MAY-2024', '901234567890'
 -- (2, '234567890123', '2023-05-01', '2024-04-30', 3000, 7, 1200, 900, 3, 2010, 'Times Square', 'New York', 'NY', '10004'),
 -- (3, '345678901234', '2023-05-01', '2024-04-30', 1500, 3, 800, 600, 1, 1998, 'Magnificent Mile', 'Chicago', 'IL', '60602'),
 -- (4, '345678901234', '2023-05-01', '2024-04-30', 2500, 5, 1500, 1200, 2, 2015, 'Wrigleyville', 'Chicago', 'IL', '60603');
+
+INSERT INTO UserTable VALUES ('390819111400', 'Harish Kumar', 25, 30, 'Bleeker St', 'Jaipur', 'Rajasthan', '342001', 'harishh@gmail.com', 'ilovesachin');
+INSERT INTO OwnerTable VALUES('390819111400');
+
+INSERT INTO UserTable VALUES ('564825945566', 'Rajesh Patel', 38, 320, 'Purushottam  St', 'Jodhpur', 'Rajasthan', '342008', 'raj@gmail.com', 'henlohenlo');
+INSERT INTO OwnerTable VALUES('564825945566');
+INSERT INTO TenantTable VALUES ('564825945566');
+INSERT INTO PhoneTable VALUES ('564825945566', '8887779956');
+
+INSERT INTO UserTable VALUES ('569888466432', 'Mahesh Khurrana', 25, 18, 'Kamla St', 'Hyderabad', 'Telangana', '500078', 'maheshthebest@gmail.com', 'biryaniislife');
+INSERT INTO OwnerTable VALUES('569888466432');
+INSERT INTO TenantTable VALUES ('569888466432');
+INSERT INTO PhoneTable VALUES ('569888466432', '8769298613');
+
+INSERT INTO UserTable VALUES ('130485445943', 'Junaid Ansari', 27, 57, 'Fountain St', 'Lucknow', 'Uttar Pradesh', '703335', 'junnu@gmail.com', 'allahuakbar');
+INSERT INTO TenantTable VALUES ('130485445943');
+INSERT INTO PhoneTable VALUES ('130485445943', '9414041400');
+
+INSERT INTO UserTable VALUES ('135597442333', 'Ishwar Singh', 25, 19, 'Yadav St', 'Udaipur', 'Rajasthan', '362256', 'iamgod@gmail.com', 'perrytheplatypus');
+INSERT INTO TenantTable VALUES ('135597442333');
+INSERT INTO PhoneTable VALUES ('135597442333', '9314783625');
+INSERT INTO PhoneTable VALUES ('135597442333', '9314783629');
+
+INSERT INTO UserTable VALUES ('569987361594', 'Sampat Singh', 28, 12, 'Pal St', 'Jodhpur', 'Rajasthan', '342001', 'sampats@gmail.com', 'snoopdogg');
+INSERT INTO TenantTable VALUES ('569987361594');
+INSERT INTO PhoneTable VALUES ('569987361594', '9352645558');
+INSERT INTO PhoneTable VALUES ('569987361594', '9352645690');
+
+INSERT INTO UserTable VALUES ('130485665943', 'Harpreet Kaur', 32, 40, 'Chand Vilas Street', 'Allahabad', 'Uttar Pradesh', '202123', 'Harpreet@gmail.com', 'Canadakavisa');
+INSERT INTO TenantTable VALUES ('130485665943');
+INSERT INTO PhoneTable VALUES ('130485665943', '9886077788');
