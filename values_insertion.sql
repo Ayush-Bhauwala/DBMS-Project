@@ -29,7 +29,7 @@ INSERT INTO PhoneTable VALUES ('345678901234', '9087567893');
 
 INSERT INTO PropertyTable VALUES (1, '567890123456', '01-MAY-2022', '01-MAY-2024', 1500.00, 2.50, 1000.00, 800.00, 2, 2000, 'Downtown', 'Chicago', 'IL', '606011');
 INSERT INTO FacilitiesTable VALUES (1, 'Swimming Pool');
-INSERT INTO HistoryTable VALUES (1, '01-APR-2023', '01-JUN-2025', '345678901234', 50, 1500.00);
+INSERT INTO HistoryTable VALUES (1, '01-JUN-2022', '01-DEC-2022', '345678901234', 50, 1500.00);
 INSERT INTO ResidentialTable VALUES (1, 2);
 
 INSERT INTO UserTable VALUES ('892437889344', 'Madhav', 22, 42, 'Sarjapur', 'Bangalore', 'Karnataka', '560102', 'madhav@gmail.com', 'fhd34ui4rf2-.ds');
@@ -72,7 +72,7 @@ INSERT INTO PhoneTable VALUES ('012345678901', '6789012345');
 INSERT INTO UserTable VALUES ('901234567890', 'David Kim', 45, 50, 'Third Boulevard', 'Boston', 'MA', '021011', 'davidkim@gmail.com', 'password345');
 INSERT INTO PhoneTable VALUES ('901234567890', '5678901234');
 INSERT INTO TenantTable VALUES ('901234567890');
-INSERT INTO HistoryTable VALUES (3, '05-MAY-2023', '05-MAY-2024', '901234567890', 50, 6000.00);
+INSERT INTO HistoryTable VALUES (3, '01-MAY-2023', NULL, '901234567890', 50, 6000.00);
 -- INSERT INTO HistoryTable VALUES (3, '2023-07-01', '2024-07-01', '123456789012', 150, 2500.00);
 -- INSERT INTO UserTable (AadhaarID, Name, Age, Door_no, Street, City, State, Pincode, Login_email, Login_password)
 -- VALUES 
@@ -115,27 +115,33 @@ INSERT INTO OwnerTable VALUES('390819111400');
 INSERT INTO UserTable VALUES ('564825945566', 'Rajesh Patel', 38, 320, 'Purushottam  St', 'Jodhpur', 'Rajasthan', '342008', 'raj@gmail.com', 'henlohenlo');
 INSERT INTO OwnerTable VALUES('564825945566');
 INSERT INTO TenantTable VALUES ('564825945566');
+INSERT INTO HistoryTable VALUES (1, '01-JAN-2020', '01-FEB-2020', '564825945566', 10, 1500);
 INSERT INTO PhoneTable VALUES ('564825945566', '8887779956');
 
 INSERT INTO UserTable VALUES ('569888466432', 'Mahesh Khurrana', 25, 18, 'Kamla St', 'Hyderabad', 'Telangana', '500078', 'maheshthebest@gmail.com', 'biryaniislife');
 INSERT INTO OwnerTable VALUES('569888466432');
 INSERT INTO TenantTable VALUES ('569888466432');
+INSERT INTO HistoryTable VALUES (5, '01-JAN-2023', NULL, '569888466432', 15, 1000);
 INSERT INTO PhoneTable VALUES ('569888466432', '8769298613');
 
 INSERT INTO UserTable VALUES ('130485445943', 'Junaid Ansari', 27, 57, 'Fountain St', 'Lucknow', 'Uttar Pradesh', '703335', 'junnu@gmail.com', 'allahuakbar');
 INSERT INTO TenantTable VALUES ('130485445943');
+INSERT INTO HistoryTable VALUES (5, '05-MAR-2023', '01-MAY-2023', '130485445943', 15, 1000);
 INSERT INTO PhoneTable VALUES ('130485445943', '9414041400');
 
 INSERT INTO UserTable VALUES ('135597442333', 'Ishwar Singh', 25, 19, 'Yadav St', 'Udaipur', 'Rajasthan', '362256', 'iamgod@gmail.com', 'perrytheplatypus');
 INSERT INTO TenantTable VALUES ('135597442333');
+INSERT INTO HistoryTable VALUES (4, '30-APR-2023', NULL, '135597442333', 15, 1500);
 INSERT INTO PhoneTable VALUES ('135597442333', '9314783625');
 INSERT INTO PhoneTable VALUES ('135597442333', '9314783629');
 
 INSERT INTO UserTable VALUES ('569987361594', 'Sampat Singh', 28, 12, 'Pal St', 'Jodhpur', 'Rajasthan', '342001', 'sampats@gmail.com', 'snoopdogg');
 INSERT INTO TenantTable VALUES ('569987361594');
+INSERT INTO HistoryTable VALUES (2, '30-APR-2022', '30-APR-2023', '569987361594', 15, 2000);
 INSERT INTO PhoneTable VALUES ('569987361594', '9352645558');
 INSERT INTO PhoneTable VALUES ('569987361594', '9352645690');
 
 INSERT INTO UserTable VALUES ('130485665943', 'Harpreet Kaur', 32, 40, 'Chand Vilas Street', 'Allahabad', 'Uttar Pradesh', '202123', 'Harpreet@gmail.com', 'Canadakavisa');
 INSERT INTO TenantTable VALUES ('130485665943');
+INSERT INTO HistoryTable VALUES (3, '30-DEC-2022', '30-APR-2023', '130485665943', 15, 6000);
 INSERT INTO PhoneTable VALUES ('130485665943', '9886077788');

@@ -11,7 +11,7 @@ AS
         (
         h.Start_date IS NULL
         OR
-        trunc(sysdate) BETWEEN h.Start_date AND h.End_date
+        trunc(sysdate) NOT BETWEEN h.Start_date AND h.End_date
         );
     v_property property_cursor%ROWTYPE;
 
