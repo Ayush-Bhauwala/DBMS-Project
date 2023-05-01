@@ -22,18 +22,21 @@ CREATE OR REPLACE PROCEDURE InsertPropertyRecord(
   --v_max_id PropertyTable.PropertyID%TYPE;
   Property_ID PropertyTable.PropertyID%TYPE;
   owner_exists NUMBER;
+  isadmin NUMBER;
+
 BEGIN
   
   -- Retrieve the password for the given Aadhaar ID from UserTable
   SELECT Login_password INTO passvariable from UserTable where AadhaarID=aadhaarID_input;
 
   SELECT COUNT(*) INTO ismanager FROM ManagerTable WHERE AadhaarID = aadhaarID_input;
+  SELECT COUNT(*) INTO isadmin FROM AdminTable WHERE AadhaarID = aadhaarID_input;
 
   IF passvariable=userpass THEN
     --DBMS_OUTPUT.PUT_LINE('IN IF');
 
     --Check if the user with the given Aadhaar ID is not a manager
-    IF ismanager=0 THEN
+    IF ismanager=0 AND isadmin=0 THEN
 
       --DBMS_OUTPUT.PUT_LINE('IN IF');
 
@@ -74,7 +77,7 @@ BEGIN
           END IF;
 
       ELSE
-          DBMS_OUTPUT.PUT_LINE('Managers cannot add property');
+          DBMS_OUTPUT.PUT_LINE('Managers / Admin cannot add property');
 
       END IF;
 
@@ -86,35 +89,6 @@ BEGIN
 END;
 /
 
-
--- INSERT INTO UserTable VALUES ('111122223333', 'John Smith', 30, 101, 'Main St', 'Anytown', 'California', '123456', 'johnsmith@example.com', 'password123');
-
-
--- INSERT INTO UserTable VALUES ('987654321098', 'Jane Doe', 25, 202, 'Oak St', 'Sometown', 'New York', '654321', 'janedoe@example.com', 'pass1234');
-
--- BEGIN
---   InsertPropertyRecord(
---     aadhaarID_input => '123456789012',
---     PropertyID => 101,
---     Date_available_from => TO_DATE('2023-05-01', 'YYYY-MM-DD'),
---     Date_available_till => TO_DATE('2024-04-30', 'YYYY-MM-DD'),
---     Rent_per_month => 20000,
---     Percent_annual_hike => 5,
---     Total_area => 1500,
---     Plinth_area => 1200,
---     Floor_no => 3,
---     Construction_year => 2015,
---     Locality => 'Koramangala',
---     City => 'Bangalore',
---     State => 'Karnataka',
---     Pincode => '560095'
---   );
--- END;
--- /
-
-
-
--- SHOW ERRORS PROCEDURE InsertPropertyRecord;
 
 
 

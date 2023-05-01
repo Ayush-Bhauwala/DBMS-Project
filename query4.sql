@@ -14,20 +14,20 @@ CREATE OR REPLACE PROCEDURE CreateNewUser(
     Phone_no IN PhoneTable.Phone%TYPE
 )
 AS
-  v_user_exists NUMBER;
+  isadmin NUMBER;
   new_user_exists NUMBER;
 BEGIN
   -- Check if the given Aadhaar ID is of admin
-SELECT COUNT(*) INTO v_user_exists FROM AdminTable, UserTable WHERE AdminTable.AadhaarID = aadhaarID_input AND UserTable.Login_password=Password_check;
+SELECT COUNT(*) INTO isadmin FROM AdminTable, UserTable WHERE AdminTable.AadhaarID = aadhaarID_input AND UserTable.Login_password=Password_check;
 
-  IF v_user_exists > 0 THEN
+  IF isadmin > 0 THEN
     -- If user exists, insert a new record into UserTable with the given property details
     SELECT COUNT(*) INTO new_user_exists FROM UserTable WHERE AadhaarID = AadhaarID_new;
 
     IF new_user_exists > 0 THEN
         INSERT INTO PhoneTable VALUES (AadhaarID_new, Phone_no);
 
-        DBMS_OUTPUT.PUT_LINE('Phone number added successfully.');
+        DBMS_OUTPUT.PUT_LINE('User already exists. Phone number added successfully.');
     ELSE
         INSERT INTO UserTable (
           AadhaarID, Name, Age, Door_no, Street, City, State, Pincode, Login_email, Login_password
@@ -43,7 +43,7 @@ SELECT COUNT(*) INTO v_user_exists FROM AdminTable, UserTable WHERE AdminTable.A
   
   ELSE
     -- If user does not exist, display error message
-    DBMS_OUTPUT.PUT_LINE('Only admin can create user!');
+    DBMS_OUTPUT.PUT_LINE('Access denied.');
   END IF;
 END;
 /

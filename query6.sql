@@ -6,9 +6,7 @@ CREATE OR REPLACE PROCEDURE GetRentHistory(
 IS
 password_matches NUMBER;
 is_valid_user NUMBER;
-    CURSOR history_cursor IS    
-        -- SELECT HistoryTable.PropertyID, HistoryTable.Start_date, HistoryTable.End_date, HistoryTable.TenantID, HistoryTable.Agency_commission, HistoryTable.Rent
-        -- FROM UserTable, ManagerTable, OwnerTable, HistoryTable
+    CURSOR history_cursor IS
         SELECT * 
         FROM HistoryTable
         WHERE HistoryTable.PropertyID = Property_ID;
@@ -16,24 +14,20 @@ is_valid_user NUMBER;
 
 BEGIN
 
-SELECT COUNT(*) INTO password_matches FROM UserTable WHERE AadhaarID = AadhaarID_check AND Login_password = Password_check;
-    
+SELECT COUNT(*) INTO password_matches FROM UserTable where AadhaarID=AadhaarID_check and Login_password=Password_check;
+
 IF password_matches > 0 THEN
-    SELECT COUNT(*) INTO is_valid_user FROM ManagerTable, OwnerTable WHERE OwnerTable.AadhaarID = AadhaarID_check OR ManagerTable.AadhaarID = AadhaarID_check;
+      SELECT COUNT(*) INTO is_valid_user FROM ManagerTable where AadhaarID=AadhaarID_check;
+
+      IF is_valid_user = 0 THEN
+            SELECT COUNT(*) INTO is_valid_user FROM PropertyTable WHERE PropertyID=Property_ID and OwnerID = AadhaarID_check;
+      END IF;
 
     IF is_valid_user > 0 THEN
         OPEN history_cursor;
         FETCH history_cursor INTO v_history;
 
         IF (history_cursor%FOUND) THEN 
-            -- Print property details
-            -- DBMS_OUTPUT.PUT_LINE('Property ID: ' || v_history.PropertyID);
-            -- DBMS_OUTPUT.PUT_LINE('Start Date: ' || v_history.Start_date);
-            -- DBMS_OUTPUT.PUT_LINE('End Date: ' || v_history.End_date);
-            -- DBMS_OUTPUT.PUT_LINE('Tenant ID: ' || v_history.TenantID);
-            -- DBMS_OUTPUT.PUT_LINE('Agency Commission: ' || v_history.Agency_commission);
-            -- DBMS_OUTPUT.PUT_LINE('Rent: ' || v_history.Rent);
-
             -- Print table headers
                   DBMS_OUTPUT.PUT_LINE('-------------------------------------------------------------------------------------------');
                   DBMS_OUTPUT.PUT_LINE('|  Property ID  |  Start_date  |  End_date  |   TenantID   |  Agency_commission  |  Rent  |');

@@ -13,7 +13,7 @@ CURSOR tenant_details is
       TenantTable.AadhaarID = HistoryTable.TenantID AND
       HistoryTable.PropertyID = PropertyTable.PropertyID AND
       PropertyTable.PropertyID = PropertyID_input AND
-      HistoryTable.End_date >= trunc(sysdate);
+      (HistoryTable.End_date >= trunc(sysdate) OR HistoryTable.End_date IS NULL);
 tenant tenant_details%ROWTYPE;
 
 CURSOR phone_details is 
@@ -24,7 +24,7 @@ CURSOR phone_details is
       HistoryTable.PropertyID = PropertyTable.PropertyID AND
       PropertyTable.PropertyID = PropertyID_input AND
       PhoneTable.AadhaarID = UserTable.AadhaarID AND
-      HistoryTable.End_date >= trunc(sysdate);
+      (HistoryTable.End_date >= trunc(sysdate) OR HistoryTable.End_date IS NULL);
 phone phone_details%ROWTYPE;
 
 BEGIN
